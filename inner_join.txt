@@ -1,0 +1,6 @@
+SELECT title, COUNT(title) as number_of_copies_store1
+FROM film
+INNER JOIN inventory ON inventory.film_id = film.film_id
+WHERE store_id = 1
+GROUP BY title
+ORDER BY title ASC;
