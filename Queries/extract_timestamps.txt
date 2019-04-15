@@ -1,0 +1,11 @@
+This query will return a list of months and the total number of sales for that month
+in descending order
+
+SELECT 
+SUM(amount) AS total_sales, 
+extract(month from payment_date) AS month
+FROM payment
+GROUP BY month
+ORDER BY total_sales DESC;
+
+=========================================================

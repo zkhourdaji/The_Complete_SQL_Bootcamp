@@ -1,0 +1,6 @@
+SELECT first_name, last_name,
+first_name || ' ' || last_name AS full_name,
+char_length(first_name) AS first_name_length,
+char_length(last_name) AS last_name_length,
+char_length(first_name || ' ' || last_name) AS full_name_length
+FROM customer;

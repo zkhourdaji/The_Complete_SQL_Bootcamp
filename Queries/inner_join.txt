@@ -1,0 +1,30 @@
+SELECT payment_id, first_name, last_name, amount
+FROM payment
+INNER JOIN staff ON staff.staff_id = payment.staff_id;
+========================================================
+SELECT title, COUNT(title) as number_of_copies_store1
+FROM film
+INNER JOIN inventory ON inventory.film_id = film.film_id
+WHERE store_id = 1
+GROUP BY title
+ORDER BY title ASC;
+========================================================
+SELECT film.title, language.name 
+FROM film
+INNER JOIN language ON film.language_id = language.language_id;
+========================================================
+SELECT COUNT(title), language.name 
+FROM film
+INNER JOIN language ON film.language_id = language.language_id
+GROUP BY language.name;
+========================================================
+SELECT city, country, city.last_update
+FROM city
+INNER JOIN country ON city.country_id = country.country_id
+ORDER BY country ASC;
+========================================================
+SELECT country, COUNT(city) as cities_count
+FROM city
+INNER JOIN country ON city.country_id = country.country_id
+GROUP BY country
+ORDER BY cities_count DESC;
