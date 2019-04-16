@@ -28,3 +28,9 @@ FROM city
 INNER JOIN country ON city.country_id = country.country_id
 GROUP BY country
 ORDER BY cities_count DESC;
+========================================================
+SELECT inventory.film_id, film.title
+FROM rental
+INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id
+INNER JOIN film ON film.film_id = inventory.film_id
+WHERE rental.return_date BETWEEN '2005-05-29' AND '2005-05-30';
