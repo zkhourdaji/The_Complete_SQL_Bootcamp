@@ -1,0 +1,58 @@
+SELECT film.film_id,
+film.title,
+inventory.film_id,
+inventory.store_id
+FROM film
+LEFT OUTER JOIN inventory
+ON film.film_id = inventory.film_id
+ORDER BY film.film_id DESC;
+========================================================
+Get list of films that are not in inventory:
+
+SELECT film.film_id,
+film.title,
+inventory.film_id,
+inventory.store_id
+FROM film
+LEFT OUTER JOIN inventory
+ON film.film_id = inventory.film_id
+WHERE inventory.film_id IS NULL
+ORDER BY film.film_id DESC;
+========================================================
+Get number of films that are not in inventory:
+
+SELECT COUNT(film.film_id)
+FROM film
+LEFT OUTER JOIN inventory
+ON film.film_id = inventory.film_id
+WHERE inventory.film_id IS NULL;
+========================================================
+Get list of all films with the total number of copies for each film across all stores.
+
+SELECT film.film_id,
+film.title,
+COUNT(inventory.film_id) AS total_copies_in_all_stores
+FROM film
+LEFT OUTER JOIN inventory ON film.film_id = inventory.film_id
+GROUP BY film.film_id
+ORDER BY total_copies_in_all_stores ASC;
+========================================================
+Get all the films and list the count of copies for each store.
+
+SELECT film.film_id, 
+film.title, 
+count(inventory.film_id) AS copies_per_store, 
+store_id 
+FROM film
+LEFT OUTER JOIN inventory ON film.film_id = inventory.film_id
+GROUP BY film.film_id, store_id
+ORDER BY copies_per_store;
+========================================================
+Get all the languages and list all the films for each language.
+If there is no film for that language null will be shown in the title column
+
+SELECT name,
+film.title
+FROM language
+LEFT OUTER JOIN film ON language.language_id = film.language_id
+ORDER BY language.language_id DESC;
