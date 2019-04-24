@@ -1,0 +1,8 @@
+CREATE TABLE leads(
+	lead_id serial PRIMARY KEY,
+	first_name VARCHAR(100) NOT NULL,
+	last_name VARCHAR(100) NOT NULL,
+	email VARCHAR(100) UNIQUE,
+	signup_date timestamp,
+	minutes_spent_on_site integer
+);
