@@ -1,0 +1,8 @@
+ALTER TABLE link ADD COLUMN active boolean 
+============================================
+ALTER TABLE link DROP COLUMN active
+============================================
+ALTER TABLE link RENAME COLUMN url TO url2
+============================================
+ALTER TABLE link RENAME TO link2
+============================================
