@@ -1,0 +1,7 @@
+DROP TABLE test2
+==========================
+DROP TABLE IF EXISTS test2 
+==========================
+DROP TABLE IF EXISTS test2 RESTRICT
+==========================
+DROP TABLE IF EXISTS test2 CASCADE  
