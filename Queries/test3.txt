@@ -1,0 +1,26 @@
+CREATE TABLE students(
+	student_id serial PRIMARY KEY,
+	first_name VARCHAR(100),
+	last_name VARCHAR(100),
+	homeroom_number integer,
+	phone VARCHAR(20) NOT NULL UNIQUE,
+	email VARCHAR(200) UNIQUE,
+	graduation_year integer
+	
+)
+================================================
+CREATE TABLE teachers(
+	teacher_id serial PRIMARY KEY,
+	first_name VARCHAR(100),
+	last_name VARCHAR(100),
+	homeroom_number integer,
+	department VARCHAR(100),
+	email VARCHAR(200) UNIQUE,
+	phone VARCHAR(20) UNIQUE
+)
+==================================================
+INSERT INTO students (first_name, last_name, phone, email, graduation_year, homeroom_number)
+VALUES ('Mark', 'Watney', '777-555-1234', '', 2035, 5)
+==================================================
+INSERT INTO teachers(first_name, last_name, homeroom_number, department, email, phone)
+VALUES ('Johas', 'Salk', 5, 'Biology', 'jsalk@school.org', '777-555-1234')
